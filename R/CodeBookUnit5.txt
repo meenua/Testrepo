@@ -1,0 +1,64 @@
+Code Book
+
+This document describes the code inside Unit5Assignment.Rmd
+
+The code is splitted (by comments) in some sections:
+
+    Objects
+    Loading data
+    Manipulating data
+    Writing final data to CSV
+
+Objects
+
+data.frane objects like y2015, y2016 used in the code.
+
+
+Loading data
+
+Loads data from y2015, y2016 dataset to two data.frame respectively. These file is a series of popular children’s names born in the year 2016 and 2015 in the United States.
+It consists of three columns with a first name, a gender, and the amount of children given that name.
+The returned data.frame contains a column First Name, a column Gender and the column Number of Children from data.
+    
+Manipulating data
+	
+	Finds and deletes the entry which had a name misspelled with 'yyy' from y2016
+    Merges y2016 with y2015 on first name and gender into a new data frane called 'final'
+    Creates a new column 'Total' in 'final'. This column contains the addition of 'number of children' in y2015 and y2016 together
+	
+	At this point the final data frame  looks like this
+	
+> head(final)	
+	
+	FirstName Gender NumberofChildren TotalChildren Total
+1     Aaban      M                9            15    24
+2     Aabha      F                7             7    14
+3 Aabriella      F               11             5    16
+4     Aadam      M               18            22    40
+5   Aadarsh      M               11            15    26
+6     Aaden      M              194           297   491
+	
+	Sorts 'final' on 'total'
+	Displays the top 10 most popular names	
+    
+> head(sorted,10)
+      FirstName Gender NumberofChildren TotalChildren Total
+8290       Emma      F            19414         20415 39829
+19886    Olivia      F            19246         19638 38884
+19594      Noah      M            19015         19594 38609
+16114      Liam      M            18138         18330 36468
+23273    Sophia      F            16070         17381 33451
+3252        Ava      F            16237         16340 32577
+17715     Mason      M            15192         16591 31783
+25241   William      M            15668         15863 31531
+10993     Jacob      M            14416         15914 30330
+10682  Isabella      F            14722         15574 30296
+
+	Then computes the top 10 most popular girl’s names and assigns to 'girl' object.
+
+
+Writing final data to CSV
+
+	Finally writes these top 10 girl Names and their Totals to a CSV file called itsagirl.csv. 
+	It does not include row labels and leaves out columns other than Name and Total.
+	
